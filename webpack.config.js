@@ -1,9 +1,10 @@
 const path = require('path');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 const { CleanWebpackPlugin } = require('clean-webpack-plugin'); // new line
+const Dotnev = require('dotenv-webpack');
 
 module.exports = {
-  entry: './src/index.js',
+  entry: './src/js/index.js',
   output: {
     filename: 'bundle.js',
     path: path.resolve(__dirname, 'dist')
@@ -13,9 +14,10 @@ module.exports = {
     contentBase: './dist'      
   },
   plugins: [
-    new CleanWebpackPlugin(), 
+    new CleanWebpackPlugin(),
+    new Dotnev(), 
     new HtmlWebpackPlugin({
-      title: 'Shape Tracker',
+      title: 'Project Template',
       template: './src/index.html',
       inject: 'body'
     })
